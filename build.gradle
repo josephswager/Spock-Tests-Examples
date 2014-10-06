@@ -1,0 +1,38 @@
+apply plugin: 'groovy'
+
+// added for ide support
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+version = '1.0'
+description = "Spock Framework - Basic Intro Example Project"
+
+repositories {
+    mavenCentral()
+    // Spock snapshots are available from the Sonatype OSS snapshot repository
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+dependencies {
+
+    // mandatory dependencies for using Spock
+    compile "org.codehaus.groovy:groovy-all:2.3.6"
+    // spocks latest snapshot for groovy 2.3
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT"
+
+    // need to show junit testing along side spock testing
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    // optional dependencies for using Spock
+    testCompile "org.hamcrest:hamcrest-core:1.3" // only necessary if Hamcrest matchers are used
+    testRuntime "cglib:cglib-nodep:3.1"          // allows mocking of classes (in addition to interfaces)
+    // allows mocking of classes without default constructor (together with CGLIB)
+    testRuntime "org.objenesis:objenesis:2.1"
+
+    // use this as the db for tests only
+    testRuntime "com.h2database:h2:1.4.181"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.1"
+}
