@@ -57,6 +57,7 @@ class MyMathUsingStepwiseExampleSpec extends Specification {
 
         then:
         percentage == '18.18%'
+        notThrown IllegalArgumentException
 
     }
 
