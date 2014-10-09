@@ -14,7 +14,7 @@ public class MyMathTest {
     MyMath math;
 
     @Before
-    public void setup(){
+    public void setup() {
         math = new MyMath();
     }
 
@@ -45,10 +45,22 @@ public class MyMathTest {
     }
 
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testDoubleNumber_passed_null_throws_illegalArgumentException() throws Exception {
+        // Act
+        Integer numberDoubled = (Integer) math.doubleNumber(null);
 
+        // Assert
+        assertNull(numberDoubled);
+    }
 
-//    @Test
-//    public void testPrettyPrintPercentageOfDivision() throws Exception {
-//
-//    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testDoubleNumber_passed_not_a_number_throws_illegalArgumentException() throws Exception {
+        // Act
+        Integer numberDoubled = (Integer) math.doubleNumber("one");
+
+        // Assert
+        assertNull(numberDoubled);
+    }
+
 }
