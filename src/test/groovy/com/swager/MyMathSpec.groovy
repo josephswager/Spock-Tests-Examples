@@ -36,6 +36,16 @@ class MyMathSpec extends Specification {
 
     }
 
+    def "test doubleNumber method where valid input is given and returns that number doubled"() {
+        when:
+        int number = 4
+        int numberExpected = 8
+        def result = math.doubleNumber(number)
+
+        then:
+        result == numberExpected
+    }
+
     def "test doubleNumber method where invalid expected is not doubled to prove method is returning double of number given"() {
         when:
         int number = 4
@@ -62,7 +72,7 @@ class MyMathSpec extends Specification {
 
     }
 
-    def "test doubleNumber where method is given an Argument that is not of a Number class or its inhearantence throwing IllegalArgumentException"() {
+    def "test doubleNumber where method is given an Argument that is not of a Number class or its inheritance throwing IllegalArgumentException"() {
         given:
         def notNumber = "This is not a number!"
         when:
