@@ -19,9 +19,8 @@ public class MyMathTest {
     }
 
     @Test
-    public void testDoubleNumber() throws Exception {
+    public void givenNumberToMethodDoubleNumberExpectedOutcomeIsANumberDoubled() {
         Integer numberExpected = new Integer(20);
-
         Integer numberDoubled = (Integer) math.doubleNumber(10);
 
         assertEquals(numberExpected, numberDoubled);
@@ -29,9 +28,8 @@ public class MyMathTest {
 
 
     @Test
-    public void testDoubleNumber_expected_number_is_wrong_to_prove_method_works() throws Exception {
+    public void givenNumberToMethodDoubleNumberExpectedNumberToBeWrongOutcomeToProveMethodWorks() {
         Integer numberExpected = new Integer(100);
-
         Integer numberDoubled = (Integer) math.doubleNumber(10);
 
         assertNotEquals(numberExpected, numberDoubled);
@@ -39,13 +37,13 @@ public class MyMathTest {
 
 
     @Test(expected = IllegalArgumentException.class)
-    public void testDoubleNumber_passed_null_throws_illegalArgumentException() throws Exception {
+    public void GivenANullValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
         Integer numberDoubled = (Integer) math.doubleNumber(null);
         assertNull(numberDoubled);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testDoubleNumber_passed_not_a_number_throws_illegalArgumentException() throws Exception {
+    public void GivenANonValidNumberValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
         Integer numberDoubled = (Integer) math.doubleNumber("one");
         assertNull(numberDoubled);
     }
