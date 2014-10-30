@@ -37,13 +37,13 @@ public class MyMathTest {
 
 
     @Test(expected = IllegalArgumentException.class)
-    public void GivenANullValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
+    public void givenNullValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
         Integer numberDoubled = (Integer) math.doubleNumber(null);
         assertNull(numberDoubled);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void GivenANonValidNumberValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
+    public void givenNonValidNumberValueTotDoubleNumberMethodAndExpectExceptionOfIllegalArgumentExceptionToBeThrown() {
         Integer numberDoubled = (Integer) math.doubleNumber("one");
         assertNull(numberDoubled);
     }
